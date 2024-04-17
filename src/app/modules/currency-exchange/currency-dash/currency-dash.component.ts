@@ -12,9 +12,10 @@ export class CurrencyDashComponent implements OnInit {
   currvaluelist!: Array<any>
   fromcountry!: string;
   tocountry!: string;
-  fromcurrency!: number
-  convertedcurrency!:number;
-  isDisabled:boolean = false
+  fromcurrency!: number;
+  convertedcurrency!: number;
+  istoDisabled: boolean = false
+  isFromDisabled: boolean = true;
 
   constructor(private _currService: CurrencyService) { }
 
@@ -27,29 +28,38 @@ export class CurrencyDashComponent implements OnInit {
   }
 
   countrySelectedfrom(value: string) {
-    // console.log(value);
     this.fromcountry = value
+    console.log(value);
+
 
   }
   countrySelectedto(value: string) {
-    // console.log(value);
+    console.log(value);
+
     this.tocountry = value
+    // this.isFromDisabled = !this.isFromDisabled;
   }
 
   fromValu(value: string) {
-    // console.log(value);
-    this.fromcurrency = +value;
-    this._currService.getConvertedRate(this.fromcountry, this.tocountry, this.fromcurrency)
-    .subscribe((res:any) => {
-      this.convertedcurrency = res.conversion_result.toFixed(2);
-    })
-  }
 
-  convercurrency() {
+    this.fromcurrency = +value;
+    console.log(this.fromcurrency);
+
     // this._currService.getConvertedRate(this.fromcountry, this.tocountry, this.fromcurrency)
     // .subscribe((res:any) => {
     //   this.convertedcurrency = res.conversion_result.toFixed(2);
     // })
-    
+  }
+
+  convercurrency() {
+
+    if (this.fromcountry === undefined || this.tocountry === undefined || this.fromcurrency === undefined) {
+      alert("Enter All Values")
+    } else {
+      this._currService.getConvertedRate(this.fromcountry, this.tocountry, this.fromcurrency)
+        .subscribe((res: any) => {
+          this.convertedcurrency = res.conversion_result.toFixed(2);
+        })
+    }
   }
 }

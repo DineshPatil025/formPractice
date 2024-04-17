@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, map } from 'rxjs';
+import { Observable, Subject, debounceTime, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,7 @@ export class CurrencyService {
   getConvertedRate(from: string, to: string, amount: number) {
     let finUrl = `${this.convUrl}/${from}/${to}/${amount}`
     return this._http.get(finUrl)
+   
 
     // this.sendConvertedCurr$.next(res.conversion_result)
   }

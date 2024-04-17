@@ -29,6 +29,7 @@
           class="form-control"
           value="tovalue"
           #fromvalue
+          
           (input)="fromValu(fromvalue.value)"
         />
       </div>
@@ -60,7 +61,7 @@
           id="convertto"
           class="form-control"
           [value]="convertedcurrency"
-          [disabled]="!isDisabled"
+          [disabled]="!istoDisabled"
         />
       </div>
     </div>
