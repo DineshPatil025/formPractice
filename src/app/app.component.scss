@@ -1,0 +1,27 @@
+.task-details li {
+    cursor: pointer;
+    background-color: rgb(28, 27, 27);
+    color: white;
+ transition: all ease-in-out 0.7s;
+ text-align: center;
+
+}
+
+.task-details li:hover{
+    color: white;
+    background-color: rgb(168, 154, 154);
+    // transform: translateY(0.7);
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+}
+
+.profile-pic{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}

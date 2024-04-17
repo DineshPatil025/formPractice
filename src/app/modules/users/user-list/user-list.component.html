@@ -1,0 +1,31 @@
+<div class="form-group">
+  <input type="text" class="form-control" [(ngModel)]="searchVal" />
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Photo</th>
+        <th>DOB</th>
+        <th>Age</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userArr | filter : searchVal">
+        <td>{{ user.email }}</td>
+        <td><img class="profile-pic"  [src]="user.profilephoto" alt="profile pic"></td>
+        <td>{{user.dob | date :'shortDate'}}</td>
+        <td>{{2*2}}</td>
+        <td>
+          <button class="btn btn-warning" (click)="onUserEdit(user)">
+            Edit
+          </button>
+        </td>
+        <td><button class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

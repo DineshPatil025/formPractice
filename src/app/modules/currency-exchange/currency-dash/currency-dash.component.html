@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <!-- ##### From currency -->
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="selectcountrfrom">Select Country Name to covert currency from</label>
+        <select
+          name="selectcountrfrom"
+          id="selectcountrfrom"
+          class="form-control"
+          (change)="countrySelectedfrom(selectcountrfrom.value)"
+          #selectcountrfrom
+        >
+        <option value="select" selected disabled>Select Country Name</option>
+
+          <option [value]="country" *ngFor="let country of countrylist">
+            {{ country }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="convertfrom">Amount</label>
+        <input
+          type="number"
+          name="convertfrom"
+          id="convertfrom"
+          class="form-control"
+          value="tovalue"
+          #fromvalue
+          (input)="fromValu(fromvalue.value)"
+        />
+      </div>
+    </div>
+
+    <!-- ##### to currency -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="selectcountrto">Select Country Name to covert currency from</label>
+        <select
+          name="selectcountrto"
+          id="selectcountrto"
+          class="form-control"
+          (change)="countrySelectedto(selectcountrto.value)"
+          #selectcountrto
+        >
+        <option value="select" selected disabled>Select Country Name</option>
+          <option [value]="country" *ngFor="let country of countrylist">
+            {{ country }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="convertto">Converted Currency</label>
+        <input
+          type="number"
+          name="convertto"
+          id="convertto"
+          class="form-control"
+          [value]="convertedcurrency"
+          [disabled]="!isDisabled"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-success"
+      (click)="convercurrency()"
+      >Convert</button>
+    </div>
+  </div>
+</div>

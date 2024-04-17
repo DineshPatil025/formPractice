@@ -1,0 +1,15 @@
+<h3 class="text-center text-white bg-dark py-2">Couner Using Input and Output decorator</h3>
+<div class="row text-center">
+  <div class="col-md-12">
+    <app-counter-display
+    [counter]="counter"
+    ></app-counter-display>
+</div>
+  <div class="col-md-12">
+    <app-counter-actions
+    (increment)="onIncremet()"
+    (decrement)="onDecrement()"
+    (reset)="onReset()"
+    ></app-counter-actions>
+</div>
+</div>

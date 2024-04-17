@@ -1,0 +1,45 @@
+<form [formGroup]="userForm" (ngSubmit)="onUserAdd()">
+  <!-- EMAIL -->
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      name="email"
+      id="email"
+      formControlName="email"
+      class="form-control"
+    />
+  </div>
+
+  <!-- DOB -->
+
+  <div class="form-group">
+    <label for="dob">dob</label>
+    <input
+      type="date"
+      name="dob"
+      id="dob"
+      formControlName="dob"
+      class="form-control"
+    />
+  </div>
+
+  <!-- PROFILE PHOTO UPLOAD -->
+
+  <div class="form-group">
+    <label for="profilephoto">Upload File/image</label>
+    <input
+      type="file"
+      name="profilephoto"
+      id="profilephoto"
+      class="form-control"
+      (change)="uploadImage($event)"
+    />
+  </div>
+
+  <!-- ACTIONS -->
+
+  <div class="text-right">
+    <button class="btn btn-success">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-3">
+        <app-jf-card [jobfair] = "jobfair" *ngFor="let jobfair of jobfairsArr"
+        (sendJobFair) = "getjobFair($event)"
+        ></app-jf-card>
+    </div>
+    <div class="col-md-9">
+        <app-jf-details
+       [getFairDetails] = "fairdetails"
+        ></app-jf-details>
+    </div>
+</div>

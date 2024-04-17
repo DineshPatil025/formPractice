@@ -1,0 +1,19 @@
+<section>
+  <div class="banner">
+    <img
+      class="bannerImg"
+      [src]="getFairDetails.bannerUrl"
+      alt="fair details"
+    />
+    <div class="fairDetails">
+      <h4>{{ getFairDetails.fairName }}</h4>
+      <p class="mb-0">Event Type : {{ getFairDetails.type }}</p>
+      <p>
+        Event Type :
+        {{ getFairDetails.startDate * 1000 - 24 * 60 * 60 * 1000 | date }}
+      </p>
+    </div>
+  </div>
+
+  <p [innerHTML]="getFairDetails.candidateDescription"></p>
+</section>

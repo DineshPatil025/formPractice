@@ -1,0 +1,13 @@
+<h1 bgColorDirective>To this element bg color is given using directive</h1>
+<div class="row text-center">
+  <div class="col-md-12">
+    <h3>{{ min }} : {{ timer }}</h3>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col-md-12">
+    <button class="btn btn-success mr-2" (click)="startTimer()">Start</button>
+    <button class="btn btn-warning mr-2" (click)="stopTimer()">Stop</button>
+    <button class="btn btn-danger" (click)="resetTimer()">Reset</button>
+  </div>
+</div>
