@@ -54,6 +54,7 @@ export class UserFormComponent implements OnInit {
       this.ageCalc(newUser.dob)
       this._userService.addNewUser(newUser)
       this.userForm.reset()
+      // this.userForm.controls(['dob'])
 
     } else if (this.userForm.valid && this.isInEditMode) {
       this.updateUser()
