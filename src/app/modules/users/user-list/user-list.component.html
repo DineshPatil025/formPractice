@@ -17,14 +17,14 @@
       <tr *ngFor="let user of userArr | filter : searchVal">
         <td>{{ user.email }}</td>
         <td><img class="profile-pic"  [src]="user.profilephoto" alt="profile pic"></td>
-        <td>{{user.dob | date :'shortDate'}}</td>
+        <td>{{user.dob | date :'shortDate' :'en-GB'}}</td>
         <td>{{2*2}}</td>
         <td>
           <button class="btn btn-warning" (click)="onUserEdit(user)">
             Edit
           </button>
         </td>
-        <td><button class="btn btn-danger">Delete</button></td>
+        <td><button class="btn btn-danger" (click)="onUserDelete(user.userid)">Delete</button></td>
       </tr>
     </tbody>
   </table>

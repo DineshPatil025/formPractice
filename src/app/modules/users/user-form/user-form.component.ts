@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Iuser } from 'src/app/shared/models/user';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -12,6 +13,9 @@ export class UserFormComponent implements OnInit {
 
   userForm !: FormGroup;
   file!: File;
+  editUserObj!: Iuser;
+  isInEditMode!: boolean;
+  updateId!: string;
   // age!:any
 
 
@@ -24,6 +28,12 @@ export class UserFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._userService.editUserSubjectAsObs$
+      .subscribe((user: any) => {
+        this.isInEditMode = true;
+        this.updateId = user.userid;
+        this.userForm.patchValue(user)
+      })
   }
 
 
@@ -39,10 +49,14 @@ export class UserFormComponent implements OnInit {
   }
 
   onUserAdd() {
-    if (this.userForm.valid) {
+    if (this.userForm.valid && !this.isInEditMode) {
       let newUser = this.userForm.value;
       this.ageCalc(newUser.dob)
       this._userService.addNewUser(newUser)
+      this.userForm.reset()
+
+    } else if (this.userForm.valid && this.isInEditMode) {
+      this.updateUser()
     }
   }
 
@@ -67,7 +81,6 @@ export class UserFormComponent implements OnInit {
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
-    console.log(age);
     this.userForm.patchValue({
       userage: age
     })
@@ -75,4 +88,14 @@ export class UserFormComponent implements OnInit {
 
 
   }
+
+  updateUser() {
+    let updUser = this.userForm.value;
+
+    this._userService.updateUser(this.updateId, updUser)
+    this.isInEditMode = false;
+    this.userForm.reset()
+
+  }
+
 }

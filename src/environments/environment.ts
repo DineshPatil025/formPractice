@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://dp-angular-3aab9-default-rtdb.asia-southeast1.firebasedatabase.app/'
+  baseUrl: 'https://dp-angular-3aab9-default-rtdb.asia-southeast1.firebasedatabase.app'
 };
 
 /*

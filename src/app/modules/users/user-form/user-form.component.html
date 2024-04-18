@@ -1,4 +1,4 @@
-<form [formGroup]="userForm" (ngSubmit)="onUserAdd()">
+<form [formGroup]="userForm" >
   <!-- EMAIL -->
   <div class="form-group">
     <label for="email">Email</label>
@@ -40,6 +40,8 @@
   <!-- ACTIONS -->
 
   <div class="text-right">
-    <button class="btn btn-success">Submit</button>
+    <button [class]="(!isInEditMode)?'btn btn-success':'btn btn-warning' " [type]="(!isInEditMode)?'submit':'button'"
+    (click)="onUserAdd()"
+        >{{(!isInEditMode)?'Submit':'Update'}}</button>
   </div>
 </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { findIndex } from 'rxjs';
 import { Iuser } from 'src/app/shared/models/user';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -16,25 +17,38 @@ export class UserListComponent implements OnInit {
   constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
-    // console.log(this.profilephoto);
     this._userService.getAllUsers()
       .subscribe((res: any) => {
-        // console.log(res.profilephoto);
         this.userArr = res;
-        // console.log(this.userArr);
       })
 
     this._userService.newUserSubjectAsObs$
       .subscribe((res: any) => {
         this.userArr.push(res)
       })
+    this._userService.deleteUserSubjectAsObs$
+      .subscribe(res => {
+        this.userArr = this.userArr.filter(user => user.userid !== res)
+      })
+
+    this._userService.updateUserSubjectAsObs$
+      .subscribe((updUser: any) => {
+        let updateIndex = this.userArr.findIndex(user => user.userid === updUser.userid)
+        this.userArr[updateIndex] = updUser;
+      })
   }
 
 
 
   onUserEdit(editUserObj: Iuser) {
-    console.log(editUserObj);
     this._userService.editUser(editUserObj)
+  }
+
+  onUserDelete(userid: string) {
+    let conf = confirm('Are you Sure want to delete')
+    if (conf) {
+      this._userService.deleteUser(userid)
+    }
   }
 
 }

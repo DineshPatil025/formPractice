@@ -24,7 +24,7 @@ export class JfDashComponent implements OnInit {
   }
 
   getjobFair(jf:Ifair){
-    console.log(jf);
+    // console.log(jf);
     this.fairdetails = jf;
     
   }

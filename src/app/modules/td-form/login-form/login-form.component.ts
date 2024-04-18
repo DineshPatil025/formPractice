@@ -17,11 +17,10 @@ export class LoginFormComponent implements OnInit {
 
   }
 
-  onLogInSubmit(logInForm:NgForm) {
-    // e.preventDefault()
+  onLogInSubmit(logInForm: NgForm) {
     console.log(logInForm.value);
     console.log(logInForm);
     logInForm.reset();
-    
+
   }
 }

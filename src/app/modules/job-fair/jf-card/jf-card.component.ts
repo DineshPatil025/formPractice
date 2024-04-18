@@ -19,7 +19,7 @@ export class JfCardComponent implements OnInit {
 
   sendFair(){
     this.sendJobFair.emit(this.jobfair)
-    console.log("card clicked");
+    // console.log("card clicked");
     
   }
 
