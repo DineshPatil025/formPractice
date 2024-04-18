@@ -17,6 +17,8 @@ export class UserListComponent implements OnInit {
   constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
+    console.log(this.searchVal);
+    
     this._userService.getAllUsers()
       .subscribe((res: any) => {
         this.userArr = res;
