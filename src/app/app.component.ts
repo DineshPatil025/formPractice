@@ -2,6 +2,7 @@ import { AfterContentChecked, Component, OnDestroy, OnInit, inject } from '@angu
 import { LoaderService } from './shared/services/loader.service';
 import { UserService } from './shared/services/user.service';
 import { Subscription } from 'rxjs';
+// import { DigWatchComponent } from './modules/dig-watch/dig-watch/dig-watch.component';
 
 @Component({
   selector: 'app-root',

@@ -13,6 +13,7 @@ import { LoaderInterceptor } from './shared/services/loader.interceptor';
 import { HeaderInterceptor } from './shared/services/header.interceptor';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { DigWatchComponent } from './modules/dig-watch/dig-watch/dig-watch.component';
 
 
 
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,   
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DigWatchComponent
    
 
 

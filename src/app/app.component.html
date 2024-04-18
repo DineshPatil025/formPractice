@@ -1,27 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<!-- <div class="container"> -->
-  <div class="row">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto d-flex justify-content-between" >
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="emp-details">Employee Details <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="stop-watch">Stop Watch</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link " routerLink="user-details">User Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="counter">Counter</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="axit">Axit</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="tdform">TD Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="currencyexchange">Currency Exchange</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="jobfair">Job Fair</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="digwatch">Digital Watch</a>
+      </li>
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> -->
+    </ul>
+    <div class="watch">
+      <app-dig-watch></app-dig-watch>
+    </div>
+  </div>
+</nav>
+
+
+  
+  <div class="row mt-4">
     <!-- ##### ROUTES ###### -->
 
-    <div class="col-md-2">
-      <ul class="list-group task-details">
-        <li class="list-group-item" routerLink="emp-details">
-          Employee Details
-        </li>
-        <li class="list-group-item" routerLink="stop-watch">Stop Watch</li>
-        <li class="list-group-item" routerLink="user-details">User Details</li>
-        <li class="list-group-item" routerLink="counter">Counter</li>
-        <li class="list-group-item" routerLink="axit">axit</li>
-        <li class="list-group-item" routerLink="tdform">tdform</li>
-        <li class="list-group-item" routerLink="currencyexchange">Currency Exchange</li>
-        <li class="list-group-item" routerLink="jobfair">Job Fair</li>
-      </ul>
-    </div>
+    <!-- <div class="col-md-2"> -->
+      <!-- <ul class="list-group task-details"> -->
+        <!-- <li class="list-group-item" routerLink="emp-details"> Employee Details</li> -->
+        <!-- <li class="list-group-item" routerLink="stop-watch">Stop Watch</li> -->
+        <!-- <li class="list-group-item" routerLink="user-details">User Details</li> -->
+        <!-- <li class="list-group-item" routerLink="counter">Counter</li> -->
+        <!-- <li class="list-group-item" routerLink="axit">axit</li>
+        <li class="list-group-item" routerLink="tdform">tdform</li> -->
+        <!-- <li class="list-group-item" routerLink="currencyexchange">Currency Exchange</li>
+        <li class="list-group-item" routerLink="jobfair">Job Fair</li> -->
+      <!-- </ul> -->
+    <!-- </div> -->
 
 
 
     <!-- ##### ROUTER OUTLET AND SPINNER ###### -->
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="spinner" *ngIf="isLoader">
         <div class="spinner-border text-primary loaderSpinner" role="status">
           <span class="sr-only">Loading...</span>
