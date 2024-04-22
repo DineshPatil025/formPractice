@@ -12,19 +12,15 @@ export class JfDashComponent implements OnInit {
   constructor() { }
 
   fairdetails!:Ifair
-
   jobfairsArr!:Array<Ifair>;
 
   ngOnInit(): void {
 
     this.jobfairsArr = fairsArr;
     this.fairdetails = this.jobfairsArr[0]
-    // console.log(this.jfArr);
-    
   }
 
   getjobFair(jf:Ifair){
-    // console.log(jf);
     this.fairdetails = jf;
     
   }

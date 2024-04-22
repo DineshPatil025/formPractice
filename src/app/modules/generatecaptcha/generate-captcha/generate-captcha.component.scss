@@ -1,0 +1,8 @@
+.captcha-div {
+display: flex;
+text-align: center;
+    & .captcha {
+        background-color: aliceblue;
+        text-decoration: line-through;
+    }
+}

@@ -11,9 +11,6 @@ export class JfDetailsComponent implements OnInit {
   @Input() getFairDetails!:Ifair
 
   constructor() { }
-
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
 }

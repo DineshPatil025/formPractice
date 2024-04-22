@@ -53,6 +53,11 @@ const routes: Routes = [
     path:"digwatch",
     loadChildren:()=> import('./modules/dig-watch/dig-watch.module').then(m=>m.DigWatchModule),
     title:"Home-Digital Watch"
+  },
+  {
+    path:"generatecaptcha",
+    loadChildren:()=> import('./modules/generatecaptcha/generatecaptcha.module').then(m=>m.GeneratecaptchaModule),
+    title:"Home-Generate Captcha"
   }
   
 ];
