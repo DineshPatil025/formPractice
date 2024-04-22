@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-generate-captcha',
@@ -7,36 +7,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenerateCaptchaComponent implements OnInit {
 
+  @ViewChild('captchavalue') captchavalue!: string
+
   constructor() { }
 
-  char:string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-  captcha:string = ""
-  captchalength:number = 6
+  char: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+  captcha: string = ""
+  captchalength: number = 6
   ngOnInit(): void {
+    console.log(this.captchavalue);
+
     this.generateCaptcha()
   }
 
-  generateCaptcha(){
+  generateCaptcha() {
     this.captcha = "";
-    for(let i=0; i<this.captchalength;i++){
+    for (let i = 0; i < this.captchalength; i++) {
       let indexNum = Math.floor(Math.random() * this.char.length)
-        this.captcha += this.char[indexNum]
+      this.captcha += this.char[indexNum]
     }
     return this.captcha
   }
 
-  checkCaptcha(value:string){
-    if(value === this.captcha){
-      alert("Captcha matched succesfully")
-      
-    }else{
-      alert("Captcha did not matched")
+  checkCaptcha(value: string) {
+    if (value !== "") {
 
+      if (value === this.captcha) {
+        alert("Captcha matched succesfully")
+      } else {
+        alert("Captcha did not matched")
+      }
+    } else {
+      alert("please enter captcha in the text box")
     }
-    console.log(value);
-    console.log(this.captcha);
-    
-    
   }
 
 
