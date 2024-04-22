@@ -7,7 +7,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class GenerateCaptchaComponent implements OnInit {
 
-  @ViewChild('captchavalue') captchavalue!: string
+
 
   constructor() { }
 
@@ -15,8 +15,6 @@ export class GenerateCaptchaComponent implements OnInit {
   captcha: string = ""
   captchalength: number = 6
   ngOnInit(): void {
-    console.log(this.captchavalue);
-
     this.generateCaptcha()
   }
 
